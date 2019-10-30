@@ -8,6 +8,6 @@ public interface MealRepository {
     Meal create(Meal meal);
     Meal read(int id);
     void update(Meal meal);
-    void delete(Meal meal);
+    void delete(int id);
     List<Meal> readAll();
 }

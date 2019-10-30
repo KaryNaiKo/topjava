@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.service;
 
+import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.MealTo;
 import ru.javawebinar.topjava.repository.InMemoryMealRepository;
 import ru.javawebinar.topjava.repository.MealRepository;
@@ -19,7 +20,21 @@ public class MealServiceImpl implements MealService{
     }
 
     @Override
-    public MealTo get(int id) {
-        return null;
+    public Meal get(int id) {
+        return mealRepository.read(id);
+    }
+
+    @Override
+    public void delete(int id) {
+        mealRepository.delete(id);
+    }
+
+    @Override
+    public void saveOrUpdate(Meal meal) {
+        if(meal.getId() == 0) {
+            mealRepository.create(meal);
+        } else {
+            mealRepository.update(meal);
+        }
     }
 }

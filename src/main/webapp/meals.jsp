@@ -33,8 +33,13 @@
 <%--            <td>${meal.dateTime}</td>--%>
             <td>${fn:replace(meal.dateTime, "T", " ")}</td>
             <td>${meal.calories}</td>
+
+            <td><a href="meals?method=edit&id=${meal.id}">Edit</a></td>
+            <td><a href="meals?method=delete&id=${meal.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
+
+<a href="meals?method=create">Create new Meal</a>
 </body>
 </html>
